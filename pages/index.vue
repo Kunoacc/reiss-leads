@@ -1,24 +1,25 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        leads
-      </h1>
-      <h2 class="subtitle">
-        Leads Management System
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+  <section class="bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-5 bg-login d-none d-lg-block" :style="{backgroundImage: `url(${bannerImg})`}"></div>
+        <div class="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-center">
+          <div class="row mx-auto text-center">
+            <div class="col-12"><img :src="logo" width="200" alt="" srcset=""></div>
+            <div class="col-8 mx-auto text-dark">
+              <h1 class="py-3 h1 font-weight-bold text-left">Login</h1>
+            </div>
+            <div class="col-8 mx-auto my-3">
+              <b-form-input type="text" id="username" placeholder="username" size="lg" class="font-weight-light" autocomplete="false"></b-form-input>
+            </div>
+            <div class="col-8 mx-auto my-3">
+              <b-form-input type="password" id="username" placeholder="password" size="lg" class="font-weight-light" autocomplete="false"></b-form-input>
+            </div>
+            <div class="col-8 mx-auto my-3 text-center text-lg-right">
+                <button class="btn btn-primary font-weight-light px-5 py-2">login</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -28,41 +29,58 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  name: 'index',
+  data(){
+    return {
+      loading: false
+    }
+  },
   components: {
     Logo
+  },
+  methods: {
+    login(){
+      
+    }
+  },
+  computed: {
+    bannerImg(){
+      return require('../assets/img/login-bg.svg')
+    },
+    logo(){
+      return require('../assets/img/logo-dark.svg')
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+<style scoped>
+section{
+  height: 100vh;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
+.container, .container > .row, .container > .row > .col-6{
+  height: 100%;
+}
+
+.bg-login{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.form-control{
+  background: var(--light);
+  border: solid 0 transparent;
+}
+
+.form-control::placeholder{
   font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.btn-primary{
+  background: #1e3558e6;
+  border: solid 1px #1e3558e6;
 }
 
-.links {
-  padding-top: 15px;
-}
 </style>

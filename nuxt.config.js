@@ -27,12 +27,13 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/style.css',
   ],
-
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/fa'
   ],
 
   /*
@@ -43,6 +44,7 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
+    '@nuxtjs/toast'
   ],
   /*
   ** Axios module configuration
@@ -50,7 +52,18 @@ export default {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
-
+  toast: {
+    position: 'top-left',
+    register: [
+      {
+        name: 'error',
+        message: 'Oops... Something went wrong',
+        options: {
+          type: 'error'
+        }
+      }
+    ]
+  },
   /*
   ** Build configuration
   */
