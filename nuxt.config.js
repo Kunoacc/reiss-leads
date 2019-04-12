@@ -27,13 +27,14 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/style.css',
+    '@/assets/css/style.scss',
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/fa'
+    '@/plugins/fa',
+    '@/plugins/charts.js',
   ],
 
   /*
@@ -64,10 +65,19 @@ export default {
       }
     ]
   },
+  bootstrapVue: {
+    bootstrapCSS: false
+  },
   /*
   ** Build configuration
   */
   build: {
+    babel: {
+      plugins: [
+        "@babel/plugin-proposal-optional-chaining",
+        "@babel/plugin-syntax-dynamic-import"
+      ]
+    },
     /*
     ** You can extend webpack config here
     */

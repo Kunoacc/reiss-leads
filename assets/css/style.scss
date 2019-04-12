@@ -1,0 +1,114 @@
+/****************
+    IMPORTS
+****************/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+// VARIABLES
+$primary: #1e3558e6;
+$text-sizes: (xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl);
+$radius-sizes: (sm, md, lg, xl);
+$base-radius-size: 0.125rem;
+$base-text-size: 0.75rem;
+
+/******************
+    TYPOGRAPHY
+******************/
+@each $size in $text-sizes {
+    .text-#{$size} {
+        font-size: $base-text-size
+    }
+
+    $base-text-size: $base-text-size+0.125
+}
+
+body * {
+    font-family: 'Roboto', sans-serif;
+}
+
+/******************
+    CUSTOM STYLES
+******************/
+.check {
+    border: solid 0px transparent;
+    background: white;
+
+    &-left{
+        border-radius: 1rem 0 0 1rem;
+    }
+
+    &-right{
+        border-radius: 0 1rem 1rem 0;
+    }
+
+    &:focus{
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: none;
+    }
+}
+
+@each $size in $radius-sizes {
+    .rounded-#{$size}{
+        border-radius: $base-radius-size
+    }
+    $base-radius-size: $base-radius-size * 2
+}
+
+@mixin transition($element, $time) {
+    -webkit-transition: $element $time ease;
+    -moz-transition: $element $time ease;
+    -o-transition: $element $time ease;
+    transition: $element $time ease;
+}
+
+.sidebar {
+    width: 240px;
+    background: white;
+    transition: all .25s ease;
+
+    @at-root &-hidden {
+        .sidebar {
+            margin-left: -240px;
+        }
+    }
+
+    @at-root &-item {
+        @extend .text-sm;
+        font-weight: 300;
+        padding: .75rem .75rem;
+
+        &.active{
+            background: var(--primary);
+            color: white !important;
+
+            a {
+                color: white;
+
+                &:hover{
+                    text-decoration: none;
+                    text-transform: none;
+                }
+            }
+
+            &:hover{
+                transform: none;
+                font-weight: 300;
+            }
+        }
+
+        &:hover {
+            transform: translateX(3px);
+            font-weight: bold;
+            color: white;
+            @include transition(all, 0.2s)
+        }
+
+        a {
+            color: var(--dark);
+
+            &:hover {
+                text-decoration: none
+            }
+        }
+    }
+}

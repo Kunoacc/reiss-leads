@@ -16,7 +16,10 @@
               <b-form-input type="password" id="username" placeholder="password" size="lg" class="font-weight-light" autocomplete="false"></b-form-input>
             </div>
             <div class="col-8 mx-auto my-3 text-center text-lg-right">
-                <button class="btn btn-primary font-weight-light px-5 py-2">login</button>
+                <button class="btn btn-primary font-weight-light px-5 py-2 text-white" :disabled="loading" @click="login">
+                  <p class="mb-0" v-if="!loading">login</p>
+                  <fa icon="spinner" v-else spin></fa>
+                </button>
             </div>
           </div>
         </div>
@@ -40,7 +43,11 @@ export default {
   },
   methods: {
     login(){
-      
+      this.loading = true
+      return setTimeout(() => {
+        this.loading = false
+        this.$router.push({name: 'dashboard-home'})
+      }, 2000)
     }
   },
   computed: {
