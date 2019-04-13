@@ -76,8 +76,8 @@
 </template>
 
 <script>
-import ProgressCard from "../../components/ProgressCard.vue"
-import FigureCard from "../../components/FigureCard.vue"
+import ProgressCard from "@/components/ProgressCard.vue"
+import FigureCard from "@/components/FigureCard.vue"
 export default {
     name: 'dashboard-home',
     layout: 'dashboard',
