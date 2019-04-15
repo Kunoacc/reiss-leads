@@ -17,7 +17,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  router: {
+    base: '/reiss-leads/'
+  },
   /*
   ** Customize the progress-bar color
   */
