@@ -29,14 +29,16 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/style.scss',
+    '~/assets/css/style.scss',
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/fa',
-    '@/plugins/charts.js',
+    'plugins/fa',
+    'plugins/charts.js',
+    'plugins/events.js',
+    'plugins/components.js'
   ],
 
   /*

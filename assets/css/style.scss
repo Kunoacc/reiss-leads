@@ -15,7 +15,7 @@ $base-text-size: 0.75rem;
 ******************/
 @each $size in $text-sizes {
     .text-#{$size} {
-        font-size: $base-text-size
+        font-size: $base-text-size !important;
     }
 
     $base-text-size: $base-text-size+0.125
@@ -49,7 +49,7 @@ body * {
 
 @each $size in $radius-sizes {
     .rounded-#{$size}{
-        border-radius: $base-radius-size
+        border-radius: $base-radius-size !important;
     }
     $base-radius-size: $base-radius-size * 2
 }
@@ -69,6 +69,12 @@ body * {
     @at-root &-hidden {
         .sidebar {
             margin-left: -240px;
+        }
+    }
+
+    @at-root &-shown {
+        .sidebar {
+            margin-left: 0px;
         }
     }
 
@@ -112,3 +118,10 @@ body * {
         }
     }
 }
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .2s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }

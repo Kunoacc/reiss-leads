@@ -5,7 +5,9 @@
             <navbar></navbar>
             <div class="content">
                 <div class="container-fluid">
-                    <nuxt></nuxt>
+                    <div class="px-4">
+                        <nuxt></nuxt>
+                    </div>
                 </div>
             </div>
         </main>

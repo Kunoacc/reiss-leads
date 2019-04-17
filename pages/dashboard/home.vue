@@ -81,9 +81,6 @@ import FigureCard from "@/components/FigureCard.vue"
 export default {
     name: 'dashboard-home',
     layout: 'dashboard',
-    components: {
-        ProgressCard, FigureCard
-    },
     mounted(){
 
     },

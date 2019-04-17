@@ -6,8 +6,8 @@
             </p>
         </div>
         <ul class="list-unstyled">
-            <li :class="['sidebar-item', {'active': index == 0}]" v-for="(item,index) in items" :key="index">
-                <nuxt-link to="/">{{item}}</nuxt-link>
+            <li :class="['sidebar-item', {'active': $route.path == transformToUrl(item)}]" v-for="(item,index) in items" :key="index">
+                <nuxt-link :to="transformToUrl(item)" class="text-capitalize">{{item}}</nuxt-link>
             </li>
         </ul>
     </aside>
@@ -18,9 +18,16 @@ export default {
     name: 'sidebar',
     data(){
         return {
-            items: ['Home', 'Admin', 'Total Leads Generated', 'Total Calls', 'Total Web Enquiries', 'Pipelines', 'Total Converted Leads',
-                    'Conversion Rate', 'Amount Converted', 'Leads with no follow-up', 'Total scheduled calls', 'Total calls held vs not held',
+            items: ['home', 'admin', 'total leads generated', 'total calls', 'total web enquiries', 'pipeline', 'total converted leads',
+                    'conversion rate', 'amount converted', 'leads with no follow-up', 'total scheduled calls', 'total calls held vs not held',
                     'lead time', 'incentives']
+        }
+    },
+    methods: {
+        transformToUrl(string){
+            const prefix = '/dashboard'
+            return `${prefix}/${string.replace(/ /gi, '-')}`
+
         }
     },
     computed: {
