@@ -125,4 +125,15 @@ export default {
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: white;
 }
+.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #292D39;
+}
+.dark-mode .table-striped tbody tr:nth-of-type(even) {
+    background-color: #181C28;
+}
+
+.dark-mode .table-striped *{
+    color: #8E8E8E;
+    border: solid 0px transparent;
+}
 </style>

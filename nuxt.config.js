@@ -18,7 +18,7 @@ export default {
     ]
   },
   router: {
-    // base: '/reiss-leads/'
+    base: '/reiss-leads/'
   },
   /*
   ** Customize the progress-bar color

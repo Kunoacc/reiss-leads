@@ -15,6 +15,12 @@
             <span><fa class="position-absolute text-secondary" style="top: 12; right: 10;" icon="search"></fa></span>
         </div>
         <div>
+            <button class="btn bg-transparent" @click="toggleTheme">
+                <transition name="fade">
+                    <fa icon="sun" v-if="$store.state.isThemeDark"></fa>
+                    <fa icon="moon" v-else></fa>
+                </transition>
+            </button>
             <span class="px-2">
                 <fa icon="bell"></fa>
             </span>
@@ -31,18 +37,15 @@ export default {
     methods: {
         openDrawer(){
             document.querySelector('body').classList.toggle('sidebar-shown')
-        }
-    },
-    watch: {
-        width(val){
-            console.log(val)
+        },
+        toggleTheme(){
+            document.querySelector('body').classList.toggle('dark-mode')
+            this.$store.dispatch('toggleTheme')
         }
     },
     mounted(){
         window.onresize = val => {
-            console.log(val.target.innerWidth)
             if (val.target.innerWidth > 1199 && document.querySelector('body').classList.contains('sidebar-shown')){
-                console.log('passed')
                 document.querySelector('body').classList.toggle('sidebar-shown')
             }
         }
@@ -51,5 +54,16 @@ export default {
 </script>
 
 <style>
+.dark-mode .svg-inline--fa{
+    color: #7882A2;
+}
+.dark-mode .text-sm{
+    color: #7882A2;
+}
 
+.navbar .btn:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
 </style>

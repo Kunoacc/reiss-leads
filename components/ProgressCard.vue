@@ -1,6 +1,6 @@
 <template>
-    <b-col cols="12" lg="3" class="d-flex flex-column mt-3 mt-lg-0">
-        <b-card :class="cardClass">
+    <b-col cols="12" lg="3" class="d-flex flex-column mt-3 mt-lg-0 progress-card">
+        <b-card :class="cardClass" class="border-0">
             <b-card-body>
                 <b-row>
                     <b-col cols="12" md="4" class="position-relative">
@@ -41,5 +41,8 @@ export default {
 </script>
 
 <style>
-
+.dark-mode .progress-card .card-body{
+    background: #1E3558;
+    border: none;
+}
 </style>

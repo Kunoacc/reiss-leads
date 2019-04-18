@@ -12,11 +12,10 @@
                                     :per-page="6"
                                     :data="data"
                                     :isSearchable="false"
-                                    title="Converted Leads"
                                 ></data-table>
                             </div>
                             <div class="col-12 col-md-6">
-                                
+                                <pie-card></pie-card>
                             </div>
                         </b-row>
                     </b-col>
@@ -30,7 +29,16 @@ export default {
     name: 'total-leads-generated',
     data(){
         return {
-
+            fields: ['id',
+            {name: 'name', title: 'Full Name', sortField: 'name'},
+            {name: 'direction'},
+            {name: 'type'},
+            {name: 'from', sortField: 'from'},
+            {name: 'to', sortField: 'to'},
+            {name: 'extension'},
+            // 'actions'
+            ],
+            data: {}
         }
     }
 }

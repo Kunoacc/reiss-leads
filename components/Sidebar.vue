@@ -39,6 +39,13 @@ export default {
 </script>
 
 <style lang="scss">
+.dark-mode .sidebar-item a{
+    color: #7882A2 !important;
+}
+
+.dark-mode .sidebar-item.active > a{
+    color: white !important;
+}
 @media (max-width: 575px){
     .sidebar{
         margin-left: -240px

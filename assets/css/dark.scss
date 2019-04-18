@@ -3,3 +3,10 @@
     --secondary: #292D39;
     --input-bg: #181C28;
 }
+
+$theme-colors: (
+    "primary":    #1E3558,
+    "secondary":   #292D39,
+);
+
+@import '@/node_modules/bootstrap/scss/bootstrap.scss'
