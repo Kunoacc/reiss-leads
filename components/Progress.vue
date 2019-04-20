@@ -9,7 +9,7 @@
   </div>
   <div class="pv" v-bind:style="pvStyle">
     <span class="progresss" v-bind:style="progressTextStyle">
-      {{ pv || 0 }}
+      {{ pv || 0 }}%
     </span>
   </div>
 </div>
@@ -72,9 +72,9 @@ export default {
     setTransitionStyle(t) {
       return `transform ${t}s`
     },
-    setPv() {
-      this.pv = ~~(Math.random(0, 100) * 100)
+    setPv(pv) {
       let types = ['fix', 'rotate']
+      // this.pv = ~~(Math.random(0, 100) * 100)
 
       // map styles
       types.map((type) => {
@@ -114,7 +114,7 @@ export default {
         borderWidth: DEFAULT_BOLD + 'px',
         width: (this.width || DEFAULT_WIDTH) + 'px',
         height: (this.width || DEFAULT_WIDTH) + 'px',
-        backgroundColor: (this.bgColor || DEFAUTL_BG_COLOR)
+        backgroundColor: "#2F374E"
       },
 
       // 进度文字样式
@@ -166,6 +166,22 @@ export default {
         oTransform: fixTransformStyleValue,
         msTransform: fixTransformStyleValue
       }
+    }
+  },
+  watch: {
+    pv(val){
+      this.setPv(val)
+    },
+    bgColor(val){
+      if (val) {
+        // this.circleStyle.backgroundColor = val;
+        this.pvStyle.backgroundColor = val;
+      }
+    }
+  },
+  computed: {
+    thisBg(){
+      return this.bgColor
     }
   }
 }
