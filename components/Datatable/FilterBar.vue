@@ -13,9 +13,9 @@
         <transition name="fade">
           <fa icon="times" class="position-absolute icon" style="top: 11; z-index: 2; right: 135" v-if="isResetable" @click="resetFilter"></fa>
         </transition>
-        <button class="btn btn-primary rounded-circle" @click="doFilter">
+        <!-- <button class="btn btn-primary rounded-circle" @click="doFilter">
           <fa icon="search"></fa>
-        </button>
+        </button> -->
       </div>
       <button class="btn btn-primary rounded-xl">
         export csv

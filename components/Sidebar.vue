@@ -6,7 +6,7 @@
             </p>
         </div>
         <ul class="list-unstyled">
-            <li :class="['sidebar-item', {'active': $route.path == transformToUrl(item)}]" v-for="(item,index) in items" :key="index">
+            <li :class="['sidebar-item py-3', {'active': $route.path == transformToUrl(item)}]" v-for="(item,index) in items" :key="index">
                 <nuxt-link :to="transformToUrl(item)" class="text-capitalize">{{item}}</nuxt-link>
             </li>
         </ul>

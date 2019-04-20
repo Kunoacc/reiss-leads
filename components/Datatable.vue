@@ -40,11 +40,10 @@
 				</button>
 			</div>
         </vuetable>
-        <div style="padding-top:10px">
         <vuetable-pagination ref="pagination"
             @vuetable-pagination:change-page="onChangePage"
             :css="css.pagination"
-            class="py-3 bg-white"
+            class="py-3 bg-secondary"
         ></vuetable-pagination>
         </div>
     </div>
@@ -135,5 +134,13 @@ export default {
 .dark-mode .table-striped *{
     color: #8E8E8E;
     border: solid 0px transparent;
+}
+
+.dark-mode .vuetable-pagination .btn-border{
+    color: #7882A2;
+}
+
+.dark-mode .vuetable-pagination .btn-border:hover{
+    color: white;
 }
 </style>
