@@ -2,7 +2,7 @@
     <aside class="sidebar bg-secondary">
         <div class="sidebar-header navbar">
             <p class="mb-0 navbar-brand py-3">
-                <img :src="logo" alt="" srcset="" width="100%">
+                <img :src="$store.state.isThemeDark ? logoLight : logoDark" alt="" srcset="" width="100%">
             </p>
         </div>
         <ul class="list-unstyled">
@@ -31,8 +31,11 @@ export default {
         }
     },
     computed: {
-        logo(){
+        logoDark(){
             return require('@/assets/img/logo-dark.svg')
+        },
+        logoLight(){
+            return require('@/assets/img/logo-light.svg')
         }
     }
 }
