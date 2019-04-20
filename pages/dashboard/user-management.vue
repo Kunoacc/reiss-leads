@@ -1,28 +1,24 @@
 <template>
     <div class="row my-5">
         <div class="col-12 mb-5">
-            <div class="row">
-                <figure-card title="400" :is-secondary="true">Total calls from PPC</figure-card>
-                <figure-card title="300" :is-secondary="true">Total calls from SEO</figure-card>
-            </div>
-        </div>
-        <div class="col-12 mb-5">
             <div class="card card-body bg-secondary rounded-lg bg-0 p-0 border-0">
                 <data-table
                 api-url="https://vuetable.ratiw.net/api/users"
                 :fields="fields"
                 :per-page="6"
                 :data="data"
-                :isSearchable="true"
+                :isSearchable="false"
+                title="conversions per year"
+                class="shadow-sm"
                 ></data-table>
             </div>
         </div>
-  </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'total-calls',
+    name: 'user-management',
     data(){
         return {
             fields: [

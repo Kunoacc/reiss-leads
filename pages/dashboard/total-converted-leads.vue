@@ -2,13 +2,13 @@
     <div class="row my-5">
         <div class="col-12 mb-5">
             <div class="row d-flex flex-row justify-content-between">
-                <figure-card title="£20,000">
+                <figure-card title="£20,000" :is-secondary="true">
                     Total amount in pipeline
                 </figure-card>
-                <figure-card title="£20,000">
+                <figure-card title="£20,000" :is-secondary="true">
                     Total amount in pipeline
                 </figure-card>
-                <figure-card title="£20,000">
+                <figure-card title="£20,000" :is-secondary="true">
                     Total amount in pipeline
                 </figure-card>
             </div>

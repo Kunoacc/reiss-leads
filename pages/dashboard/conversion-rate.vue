@@ -1,7 +1,7 @@
 <template>
   <div class="row my-5">
     <div class="col-12 mb-5">
-      <figure-card title="2.3%">Conversion per user</figure-card>
+      <figure-card title="2.3%" :is-secondary="true">Conversion per user</figure-card>
     </div>
     <div class="col-12 mb-5">
       <div class="card card-body bg-secondary rounded-lg bg-0 p-0 border-0">
