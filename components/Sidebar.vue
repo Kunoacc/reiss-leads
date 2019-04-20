@@ -20,7 +20,7 @@ export default {
         return {
             items: ['home', 'admin', 'total leads generated', 'total calls', 'total web enquiries', 'pipeline', 'total converted leads',
                     'conversion rate', 'amount converted', 'leads with no follow-up', 'total scheduled calls', 'total calls held vs not held',
-                    'lead time', 'incentives']
+                    'lead time', 'incentives', 'user management']
         }
     },
     methods: {
