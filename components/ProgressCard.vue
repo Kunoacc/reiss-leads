@@ -1,9 +1,9 @@
 <template>
-  <b-col cols="12" lg="3" class="d-flex flex-column mt-3 mt-lg-0 progress-card">
+  <b-col cols="12" md="6" lg="3" class="d-flex flex-column mt-3 mt-lg-0 progress-card">
     <b-card :class="cardClass" class="border-0">
       <b-card-body>
         <b-row>
-          <b-col cols="12" md="4" class="position-relative">
+          <b-col cols="12" xl="4" class="position-relative d-flex d-xl-block justify-content-center">
             <progress-bar
               :color="color"
               width="60"
@@ -14,7 +14,7 @@
               :bg-color="bgColor"
             ></progress-bar>
           </b-col>
-          <b-col cols="12" md="8" class="d-flex justify-content-center flex-column">
+          <b-col cols="12" xl="8" class="d-flex justify-content-center flex-column mt-3 mt-xl-0 text-center text-xl-left">
             <h4 class="font-weight-bold" :style="{color: color || 'var(--primary)'}">{{title}}</h4>
             <p class="text-sm">
               <slot></slot>
@@ -54,6 +54,9 @@ export default {
     },
     isThemeDark() {
       return this.$store.state.isThemeDark;
+    },
+    mediaSize(){
+      return window.innerWidth
     }
   },
   watch: {

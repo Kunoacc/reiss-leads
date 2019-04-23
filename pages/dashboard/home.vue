@@ -41,10 +41,10 @@
         <figure-card :title="'0'">Scheduled Calls Held vs Not Held</figure-card>
         <figure-card title="0">Average Lead Time</figure-card>
       </div>
-      <div class="row py-4 flex-fill px-0">
-        <figure-card title="0" class="h-100">Rules</figure-card>
-        <figure-card title="0" class="h-100">Incentives</figure-card>
-        <figure-card title="0" class="ml-auto">Amount Converted</figure-card>
+      <div class="row py-4 d-lg-flex align-content-stretch align-items-stretch px-0 flex-fill">
+        <figure-card title="0">Rules</figure-card>
+        <figure-card title="0">Incentives</figure-card>
+        <figure-card title="0" class="ml-0 ml-lg-auto">Amount Converted</figure-card>
       </div>
     </dashboard-card>
   </div>
