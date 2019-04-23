@@ -1,7 +1,7 @@
 <template>
   <b-col cols="12" md="6" lg="3" class="d-flex flex-column mt-3 mt-lg-0 progress-card">
     <b-card :class="cardClass" class="border-0">
-      <b-card-body>
+      <b-card-body class="px-0 py-4">
         <b-row>
           <b-col cols="12" xl="4" class="position-relative d-flex d-xl-block justify-content-center">
             <progress-bar
