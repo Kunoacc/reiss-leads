@@ -14,7 +14,7 @@
               :bg-color="bgColor"
             ></progress-bar>
           </b-col>
-          <b-col cols="12" xl="8" class="d-flex justify-content-center flex-column mt-3 mt-xl-0 text-center text-xl-left">
+          <b-col cols="12" xl="8" class="d-flex justify-content-center flex-column mt-3 mt-xl-0 text-center text-xl-right">
             <h4 class="font-weight-bold" :style="{color: color || 'var(--primary)'}">{{title}}</h4>
             <p class="text-sm">
               <slot></slot>
