@@ -1,13 +1,10 @@
 <template>
     <aside class="sidebar bg-secondary">
         <div class="sidebar-header navbar">
-            <p class="mb-0 navbar-brand py-3">
-                <img :src="$store.state.isThemeDark ? logoLight : logoDark" alt="" srcset="" width="100%">
-            </p>
         </div>
-        <ul class="list-unstyled">
-            <li :class="['sidebar-item py-3', {'active': $route.path == transformToUrl(item)}]" v-for="(item,index) in items" :key="index">
-                <nuxt-link :to="transformToUrl(item)" class="text-capitalize">{{item}}</nuxt-link>
+        <ul class="list-unstyled pt-3">
+            <li :class="['sidebar-item pl-5', {'active': $route.path == transformToUrl(item)}]" v-for="(item,index) in items" :key="index">
+                <nuxt-link :to="transformToUrl(item)" class="text-capitalize d-flex flex-fill py-1">{{item}}</nuxt-link>
             </li>
         </ul>
     </aside>
@@ -51,13 +48,13 @@ export default {
 }
 @media (max-width: 575px){
     .sidebar{
-        margin-left: -240px
+        margin-left: -350px
     }
 }
 
 @media (min-width: 576px){
     .sidebar{
-        margin-left: -240px
+        margin-left: -350px
     }
 }
 

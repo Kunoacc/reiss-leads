@@ -1,7 +1,7 @@
 <template>
      <div class="row my-5">
          <dashboard-card title="summary">
-            <b-col cols="12" class="py-4 px-0">
+            <b-col cols="12" class="pb-4 px-0">
                 <b-row>
                     <div class="col-12 col-lg-6">
                         <data-table
@@ -107,11 +107,9 @@ export default {
             fields: [
                 'id',
                 {name: 'name', title: 'Full Name', sortField: 'name'},
-                {name: 'direction'},
-                {name: 'type'},
-                {name: 'from', sortField: 'from'},
-                {name: 'to', sortField: 'to'},
-                {name: 'extension'},
+                {name: 'Number'},
+                {name: 'percentage'},
+                {name: 'pipeline', sortField: 'from'},
                 // 'actions'
             ],
             data: {}

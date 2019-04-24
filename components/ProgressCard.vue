@@ -1,27 +1,25 @@
 <template>
   <b-col cols="12" md="6" lg="3" class="d-flex flex-column mt-3 mt-lg-0 progress-card">
-    <b-card :class="cardClass" class="border-0">
-      <b-card-body class="px-0 py-4">
-        <b-row>
-          <b-col cols="12" xl="4" class="position-relative d-flex d-xl-block justify-content-center">
+    <b-card :class="[cardClass, 'px-0 py-0']" class="border-0" body-class="d-flex align-items-center">
+      <b-row class="flex-fill justify-content-between">
+          <b-col cols="12" xl="5" class="position-relative d-flex d-xl-block justify-content-center">
             <progress-bar
               :color="color"
-              width="60"
+              width="50"
               :font-size="fontSize"
               :pv="pv"
-              bold="8"
+              bold="6"
               :text-bg-color="bgColor"
               :bg-color="bgColor"
             ></progress-bar>
           </b-col>
-          <b-col cols="12" xl="8" class="d-flex justify-content-center flex-column mt-3 mt-xl-0 text-center text-xl-right">
-            <h4 class="font-weight-bold" :style="{color: color || 'var(--primary)'}">{{title}}</h4>
-            <p class="text-sm">
+          <b-col cols="12" xl="7" class="d-flex justify-content-center flex-column mt-3 mt-xl-0 text-center text-xl-left">
+            <h5 class="font-weight-medium" :style="{color: color || 'var(--primary)'}">{{title}}</h5>
+            <p class="text-xs mb-0">
               <slot></slot>
             </p>
           </b-col>
         </b-row>
-      </b-card-body>
     </b-card>
   </b-col>
 </template>
@@ -37,7 +35,7 @@ export default {
   props: ["width", "options", "title", "cardClass", "progress", "color"],
   data() {
     return {
-      fontSize: 14,
+      fontSize: 10,
       bgColor: ""
     };
   },
@@ -72,7 +70,14 @@ export default {
 </script>
 
 <style>
+.progress-card .text-xs{
+  font-size: 0.6rem !important;
+}
 .dark-mode .progress-card .card-body {
+  background: #1e3558;
+  border: none;
+}
+.dark-mode .progress-card .card {
   background: #1e3558;
   border: none;
 }

@@ -1,132 +1,128 @@
 <template>
-<div class="v-circle" v-bind:style="circleStyle" v-on:click="setPv">
-  <div class="mask full" v-bind:style="[maskStyle, transitionStyle, rotateStyle]">
-    <div class="fill" v-bind:style="[fillStyle, transitionStyle, rotateStyle]"></div>
+  <div class="v-circle" v-bind:style="circleStyle" v-on:click="setPv">
+    <div class="mask full" v-bind:style="[maskStyle, transitionStyle, rotateStyle]">
+      <div class="fill" v-bind:style="[fillStyle, transitionStyle, rotateStyle]"></div>
+    </div>
+    <div class="mask half" v-bind:style="[maskStyle]">
+      <div class="fill" v-bind:style="[fillStyle, transitionStyle, rotateStyle]"></div>
+      <div class="fill fix" v-bind:style="[fillStyle, fixStyle, transitionStyle]"></div>
+    </div>
+    <div class="pv" v-bind:style="pvStyle">
+      <span class="progresss" v-bind:style="progressTextStyle">{{ pv || 0 }}%</span>
+    </div>
   </div>
-  <div class="mask half" v-bind:style="[maskStyle]">
-    <div class="fill" v-bind:style="[fillStyle, transitionStyle, rotateStyle]"></div>
-    <div class="fill fix" v-bind:style="[fillStyle, fixStyle, transitionStyle]"></div>
-  </div>
-  <div class="pv" v-bind:style="pvStyle">
-    <span class="progresss" v-bind:style="progressTextStyle">
-      {{ pv || 0 }}%
-    </span>
-  </div>
-</div>
 </template>
 
 <style lang="scss" scoped>
-  .v-circle {
+.v-circle {
+  border-radius: 50%;
+  position: relative;
+
+  .mask,
+  .fill {
+    position: absolute;
     border-radius: 50%;
-    position: relative;
-
-    .mask, .fill {
-      position: absolute;
-      border-radius: 50%;
-      backface-visibility: hidden;
-    }
-
-    .pv {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-      z-index: 1;
-      border-radius: 50%;
-      text-align: center;
-
-      .progresss {
-        margin: 0;
-        padding: 0;
-      }
-    }
-
+    backface-visibility: hidden;
   }
+
+  .pv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    border-radius: 50%;
+    text-align: center;
+
+    .progresss {
+      margin-bottom: 30px;
+      padding: 0;
+    }
+  }
+}
 </style>
 
 <script>
-const DEFAULT_WIDTH = 150
-    , DEFAULT_BOLD = 5
-    , DEFAULT_FONT_SIZE = 64
-    , DEFAULT_BORDER_COLOR = '#bdc3c7'
-    , DEFAULT_TEXT_COLOR = '#bdc3c7'
-    , DEFAULT_FILL_COLOR = '#2ecc71'
-    , DEFAUTL_BG_COLOR = '#f9f9f9'
-    , DEFAUTL_TEXT_BG_COLOR = '#333333'
+const DEFAULT_WIDTH = 150,
+  DEFAULT_BOLD = 5,
+  DEFAULT_FONT_SIZE = 64,
+  DEFAULT_BORDER_COLOR = "#bdc3c7",
+  DEFAULT_TEXT_COLOR = "#bdc3c7",
+  DEFAULT_FILL_COLOR = "#2ecc71",
+  DEFAUTL_BG_COLOR = "#f9f9f9",
+  DEFAUTL_TEXT_BG_COLOR = "#333333";
 
 export default {
   methods: {
     setClip(t, r, b, l) {
-      return `rect(${t}px, ${r}px, ${b}px, ${l}px)`
+      return `rect(${t}px, ${r}px, ${b}px, ${l}px)`;
     },
     setTransformStyle(pv, type) {
-      let deg = Math.floor((pv / 100) * 180)
-      if(type === 'fix') {
+      let deg = Math.floor((pv / 100) * 180);
+      if (type === "fix") {
         // remove the gap between two half circles
-        return `rotate(${deg * 2}deg)`
+        return `rotate(${deg * 2}deg)`;
       }
-      return `rotate(${deg}deg)`
+      return `rotate(${deg}deg)`;
     },
     setTransitionStyle(t) {
-      return `transform ${t}s`
+      return `transform ${t}s`;
     },
     setPv(pv) {
-      let types = ['fix', 'rotate']
+      let types = ["fix", "rotate"];
       // this.pv = ~~(Math.random(0, 100) * 100)
 
       // map styles
-      types.map((type) => {
-        this[type + 'Style'] = {
+      types.map(type => {
+        this[type + "Style"] = {
           transform: this.setTransformStyle(this.pv, type)
-        }
-      })
+        };
+      });
     }
   },
 
   props: [
-    'color',
-    'width',
-    'fontSize',
-    'pv',
-    'textColor',
-    'bold',
-    'textBgColor',
-    'borderColor',
-    'during',
-    'bgColor'
+    "color",
+    "width",
+    "fontSize",
+    "pv",
+    "textColor",
+    "bold",
+    "textBgColor",
+    "borderColor",
+    "during",
+    "bgColor"
   ],
 
   data() {
-    let transformStyleValue = this.setTransformStyle(this.pv)
-      , innerCircleWidth = ((this.width || DEFAULT_WIDTH)
-                           - 2 * (this.bold || DEFAULT_BOLD))
-                           + 'px'
-
-      , fixTransformStyleValue = this.setTransformStyle(this.pv, 'fix')
-      , transitionStyleValue = this.setTransitionStyle(this.during || 0.8)
+    let transformStyleValue = this.setTransformStyle(this.pv),
+      innerCircleWidth =
+        (this.width || DEFAULT_WIDTH) - 2 * (this.bold || DEFAULT_BOLD) + "px",
+      fixTransformStyleValue = this.setTransformStyle(this.pv, "fix"),
+      transitionStyleValue = this.setTransitionStyle(this.during || 0.8);
 
     return {
       // 环形样式
       circleStyle: {
-        borderColor: (this.borderColor || DEFAULT_BORDER_COLOR),
-        borderWidth: DEFAULT_BOLD + 'px',
-        width: (this.width || DEFAULT_WIDTH) + 'px',
-        height: (this.width || DEFAULT_WIDTH) + 'px',
+        borderColor: this.borderColor || DEFAULT_BORDER_COLOR,
+        borderWidth: DEFAULT_BOLD + "px",
+        width: (this.width || DEFAULT_WIDTH) + "px",
+        height: (this.width || DEFAULT_WIDTH) + "px",
         backgroundColor: "#2F374E"
       },
 
       // 进度文字样式
       progressTextStyle: {
-        fontSize: (this.fontSize || DEFAULT_FONT_SIZE) + 'px',
+        fontSize: (this.fontSize || DEFAULT_FONT_SIZE) + "px",
         color: this.textColor || DEFAULT_TEXT_COLOR
       },
 
       fillStyle: {
         backgroundColor: this.color || DEFAULT_FILL_COLOR,
-        width: (this.width || DEFAULT_WIDTH) + 'px',
-        height: (this.width || DEFAULT_WIDTH) + 'px',
+        width: (this.width || DEFAULT_WIDTH) + "px",
+        height: (this.width || DEFAULT_WIDTH) + "px",
         clip: this.setClip(0, this.width / 2, this.width, 0)
       },
 
@@ -147,8 +143,8 @@ export default {
       },
 
       maskStyle: {
-        width: (this.width || DEFAULT_WIDTH) + 'px',
-        height: (this.width || DEFAULT_WIDTH) + 'px',
+        width: (this.width || DEFAULT_WIDTH) + "px",
+        height: (this.width || DEFAULT_WIDTH) + "px",
         clip: this.setClip(0, this.width, this.width, this.width / 2)
       },
 
@@ -156,7 +152,7 @@ export default {
         backgroundColor: this.textBgColor || DEFAUTL_TEXT_BG_COLOR,
         width: innerCircleWidth,
         height: innerCircleWidth,
-        lineHeight: innerCircleWidth
+        lineHeight: this.fontSize / 5
       },
 
       fixStyle: {
@@ -166,13 +162,13 @@ export default {
         oTransform: fixTransformStyleValue,
         msTransform: fixTransformStyleValue
       }
-    }
+    };
   },
   watch: {
-    pv(val){
-      this.setPv(val)
+    pv(val) {
+      this.setPv(val);
     },
-    bgColor(val){
+    bgColor(val) {
       if (val) {
         // this.circleStyle.backgroundColor = val;
         this.pvStyle.backgroundColor = val;
@@ -180,9 +176,9 @@ export default {
     }
   },
   computed: {
-    thisBg(){
-      return this.bgColor
+    thisBg() {
+      return this.bgColor;
     }
   }
-}
+};
 </script>

@@ -12,11 +12,12 @@ export default {
                 datasets: [
                     {
                     label: 'Data One',
-                    backgroundColor: ['#FF840A', '#1E3558', '#FFFFFF'],
+                    backgroundColor: ['#FF840A', '#1E3558', '#4C84FF'],
                     borderWidth: 0,
                     data: [40000, 39500, 100000]
                     }
-                ]
+                ],
+                weight: 0.5
             },
             options: {
                 responsive: true,
@@ -25,12 +26,14 @@ export default {
                     position: 'right',
                     labels: {
                         boxWidth: 20,
-                        fontFamily: "'Roboto', sans-serif"
+                        fontFamily: "'Roboto', sans-serif",
+                        usePointStyle: true
                     }
                 },
                 elements: {
                     center: {}
-                }
+                },
+                cutoutPercentage: 60
             }
         }
     },

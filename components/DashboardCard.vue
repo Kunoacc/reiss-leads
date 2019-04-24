@@ -1,7 +1,7 @@
 <template>
     <b-col cols="12" class="mb-5">
-        <b-card class="card-body bg-secondary rounded-lg border-0">
-            <h5 class="text-capitalize dashboard-card-title">{{title}}</h5>
+        <b-card class="card-body bg-secondary rounded-xl border-0">
+            <h6 class="text-capitalize dashboard-card-title">{{title}}</h6>
             <b-col cols="12" class="py-4 px-0">
                 <b-row>
                     <slot></slot>

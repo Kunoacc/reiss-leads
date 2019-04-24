@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="mt-4 mt-lg-0">
         <filter-bar v-if="isSearchable"></filter-bar>
-        <div v-if="!isSearchable && title" class="col-12 ml-auto px-4 py-4 d-flex flex-row justify-content-between align-items-center">
+        <div v-if="!isSearchable && title" class="col-12 ml-auto px-4 py-3 d-flex flex-row justify-content-between align-items-center">
             <div>
-                <span class="badge badge-primary py-1 px-3 rounded-xl">{{title}}</span>
+                <span class="badge badge-primary py-1 px-3 rounded-xl text-xs font-weight-normal">{{title}}</span>
             </div>
-            <button class="btn btn-primary rounded-xl">
-                export csv
+            <button class="btn btn-primary btn-sm rounded-xl px-3 export-button text-xs">
+                Export csv
             </button>
         </div>
         <vuetable ref="vuetable"
@@ -120,9 +120,12 @@ export default {
 }
 </script>
 
-<style>
-.table-striped tbody tr:nth-of-type(odd) {
+<style lang="scss">
+.table-striped tbody tr:nth-of-type(even) {
     background-color: white;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: transparent;
 }
 .dark-mode .table-striped tbody tr:nth-of-type(odd) {
     background-color: #292D39;

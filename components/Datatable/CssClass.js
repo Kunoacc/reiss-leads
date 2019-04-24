@@ -1,8 +1,9 @@
 export const css = {
     table: {
+      tableWrapper: 'table-responsive',
       tableHeaderClass: 'mb-0',
-      tableBodyClass: 'mb-0',
-      tableClass: 'table table-striped table-hover table-responsive-md',
+      tableBodyClass: 'mb-0 table-inverted',
+      tableClass: 'table table-striped table-hover table-inverted',
       loadingClass: 'loading',
       ascendingIcon: 'chevron-up',
       descendingIcon: 'cheron-down',
@@ -18,10 +19,10 @@ export const css = {
     pagination: {
       infoClass: "pull-left",
       wrapperClass: "vuetable-pagination d-flex flex-row justify-content-center",
-      activeClass: "btn-primary text-white",
+      activeClass: "btn-primary text-white text-xs",
       disabledClass: "disabled",
-      pageClass: "btn btn-border",
-      linkClass: "btn btn-border",
+      pageClass: "btn btn-border text-xs",
+      linkClass: "btn btn-border text-xs",
       icons: {
         first: "angle-double-left",
         prev: "angle-left",

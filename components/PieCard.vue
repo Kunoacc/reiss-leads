@@ -1,13 +1,13 @@
 <template>
-    <b-card :class="['bg-transparent', {'shadow': $store.state.isThemeDark}]">
+    <b-card :class="['bg-white pie-card mt-4 mt-lg-0', {'shadow': $store.state.isThemeDark}]">
         <b-row>
             <b-col cols="12 mb-4">
-                <h5 class="text-capitalize pie-card-text">
+                <h6 class="text-capitalize pie-card-text">
                     {{title}}
-                </h5>
+                </h6>
             </b-col>
-            <b-col :cols="cols || 12">
-                <pie-chart :chart-data="data" :options="options" :title="chartTitle"></pie-chart>
+            <b-col :cols="cols || 12" class="height">
+                <pie-chart :chart-data="data" :options="options" :title="chartTitle" :styles="myStyles"></pie-chart>
             </b-col>
         </b-row>
     </b-card>
@@ -21,6 +21,12 @@ export default {
     props: ['cols', 'data', 'options', 'title', 'chartTitle'],
     components: {
         PieChart
+    },
+    computed: {
+        myStyles: () => ({
+            height: '250px',
+            position: 'relative'
+        })
     }
 }
 </script>
@@ -28,5 +34,13 @@ export default {
 <style>
 .dark-mode .pie-card-text{
     color: white;
+}
+
+.dark-mode .pie-card{
+    background: transparent !important;
+}
+
+.height{
+    max-height: 250px;
 }
 </style>

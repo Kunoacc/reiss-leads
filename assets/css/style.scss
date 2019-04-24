@@ -1,7 +1,7 @@
 /****************
     IMPORTS
 ****************/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700');
 
 // VARIABLES
 $primary: #1e3558e6;
@@ -62,13 +62,13 @@ body * {
 }
 
 .sidebar {
-    width: 240px;
+    width: 350px;
     background: white;
     transition: all .25s ease;
 
     @at-root &-hidden {
         .sidebar {
-            margin-left: -240px;
+            margin-left: -350px;
         }
     }
 
@@ -79,7 +79,7 @@ body * {
     }
 
     @at-root &-item {
-        @extend .text-sm;
+        @extend .text-xs;
         font-weight: 300;
         padding: .75rem .75rem;
 
@@ -99,14 +99,16 @@ body * {
             &:hover{
                 transform: none;
                 font-weight: 300;
+                background: var(--primary)
             }
         }
 
         &:hover {
-            transform: translateX(3px);
+            // transform: translateX(3px);
             font-weight: bold;
-            color: white;
-            @include transition(all, 0.2s)
+            color: #7f7777;
+            @include transition(all, 0.2s);
+            background: #c9ced6;
         }
 
         a {
@@ -121,7 +123,29 @@ body * {
 
 .fade-enter-active, .fade-leave-active {
     transition: opacity .2s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
-  }
+}
+
+.blur{
+    filter: blur(5px)
+}
+
+*{
+    .table th{
+        @extend .text-xs;
+    }
+
+    .table td{
+        @extend .text-xs;
+    }
+}
+
+input{
+    @extend .text-xs;
+}
+
+.font-weight-medium{
+    font-weight: 500;
+}
