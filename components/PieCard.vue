@@ -7,7 +7,17 @@
                 </h6>
             </b-col>
             <b-col :cols="cols || 12" class="height">
-                <pie-chart :chart-data="data" :options="options" :title="chartTitle" :styles="myStyles"></pie-chart>
+                <b-row no-gutters="true" class="justify-content-between align-items-center">
+                    <b-col cols="5">
+                        <pie-chart :chart-data="data" :options="options" :title="chartTitle" :styles="myStyles" ref="pie"></pie-chart>
+                    </b-col>
+                    <b-col cols="6">
+                        <div v-html="myLegend"></div>
+                    </b-col>
+                </b-row>
+            </b-col>
+            <b-col cols="12">
+
             </b-col>
         </b-row>
     </b-card>
@@ -19,8 +29,17 @@ import PieChart from "./PieChart";
 export default {
     name: 'pie-card',
     props: ['cols', 'data', 'options', 'title', 'chartTitle'],
+    data: () => ({
+        myLegend: ''
+    }),
     components: {
         PieChart
+    },
+    mounted(){
+        this.myLegend = this.$refs.pie.$data._chart.generateLegend()
+    },
+    methods: {
+
     },
     computed: {
         myStyles: () => ({

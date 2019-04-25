@@ -20,6 +20,25 @@ export default {
                 weight: 0.5
             },
             options: {
+                legendCallback: (chart) => {
+                    var text = [];
+                    text.push('<ul class="' + chart.id + '-legend list-unstyled">');
+                    for (var i = 0; i < chart.data.datasets[0].data.length; i++) {
+                        text.push('<li><span class="d-flex flex-row align-items-center">');
+
+                            if (chart.data.labels[i]) {
+                                text.push(`<div class="pie-doughnut my-2 mr-3"
+                                style="background: radial-gradient(circle, transparent 40%, ${chart.data.datasets[0].backgroundColor[i]} 40%);"></div>`)
+                                text.push(`<p class="mb-0 text-xs d-flex flex-row justify-content-between flex-fill">
+                                    <span>${chart.data.labels[i]}</span>
+                                    <span style="color: #0F0F0F">${Math.round((chart.data.datasets[0].data[i]/chart.data.datasets[0].data.reduce((a,b) => a + b, 0)) * 100)}%</span>
+                                </p>`);
+                            }
+                        text.push('</span></li>');
+                    }
+                    text.push('</ul>');
+                    return text.join("");
+                },
                 responsive: true,
                 maintainAspectRatio: false,
                 legend: {
@@ -28,7 +47,8 @@ export default {
                         boxWidth: 20,
                         fontFamily: "'Roboto', sans-serif",
                         usePointStyle: true
-                    }
+                    },
+                    display: false
                 },
                 elements: {
                     center: {}
@@ -96,5 +116,9 @@ export default {
 </script>
 
 <style>
-
+.pie-doughnut {
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+}
 </style>

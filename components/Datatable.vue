@@ -5,7 +5,7 @@
             <div>
                 <span class="badge badge-primary py-1 px-3 rounded-xl text-xs font-weight-normal">{{title}}</span>
             </div>
-            <button class="btn btn-primary btn-sm rounded-xl px-3 export-button text-xs">
+            <button class="btn btn-primary btn-sm rounded-xl px-3 export-button text-xs shadow">
                 Export csv
             </button>
         </div>

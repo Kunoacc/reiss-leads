@@ -7,7 +7,7 @@
           <div class="row mx-auto text-center">
             <div class="col-12"><img :src="logo" width="200" alt="" srcset=""></div>
             <div class="col-8 mx-auto text-dark">
-              <h1 class="py-3 h1 font-weight-bold text-left">Login</h1>
+              <h1 class="py-3 h1 font-weight-medium text-left">Login</h1>
             </div>
             <div class="col-8 mx-auto my-3">
               <b-form-input type="text" id="username" placeholder="username" size="lg" class="font-weight-light" autocomplete="false"></b-form-input>
