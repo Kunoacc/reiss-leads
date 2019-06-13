@@ -51,10 +51,10 @@
 <script>
 import Datepicker from 'vuejs-datepicker';
 
-import "@/assets/css/light.scss";
-import sidebar from "@/components/sidebar.vue";
-import navbar from "@/components/navbar.vue";
-import modals from "@/components/modals.vue";
+import "~/assets/css/light.scss";
+import sidebar from "~/components/Sidebar.vue";
+import navbar from "~/components/Navbar.vue";
+import modals from "~/components/Modals.vue";
 export default {
   name: "dashboard-wrapper",
   components: {
